@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Call Center Line Tree View -->
+
+	    <record id="call_center_line_tree" model="ir.ui.view">
+	        <field name="name">call center line tree</field>
+	        <field name="model">call.center.line</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+				<tree editable="top" colors="blue:type == 'in';green:type == 'out'">
+					<field name="description"/>
+					<field name="type"/>
+					<field name="created_by_id"/>
+					<field name="created_date"/>
+                </tree>       
+	        </field>
+	    </record>
+
+        <record id="call_center_line_search" model="ir.ui.view">
+            <field name="name">Calls- Search</field>
+            <field name="model">call.center.line</field>
+            <field name="arch" type="xml">
+                <search string="Calls Search">
+					<filter help="In" icon="terp-personal+" domain="[('type','=','in')]"/>
+					<filter help="Out" icon="terp-personal+" domain="[('type','=','out')]"/>
+					<separator/>
+					<group expand="0" string="Group By">
+						<filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by' : 'created_by_id'}" />
+					    <filter string="Type" context="{'group_by': 'type'}"/>
+					</group>
+                </search>
+            </field>
+        </record>
+
+		<record id="action_call_center_line_3_type" model="ir.actions.act_window">
+			<field name="name">Calls</field>
+			<field name="res_model">call.center.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>     
+            <field name="domain">[('call_center_id','=', active_id)]</field>
+			<field name="view_id" ref="call_center_line_tree"/>
+		</record>
+
+
+		<!-- End Call Center Line Tree View -->
+
+		<!-- Call Center View -->
+		<record id="call_center_form" model="ir.ui.view">
+			<field name="name">Service Form</field>
+		    <field name="model">call.center</field>
+		    <field name="arch" type="xml">
+		    	<form>
+		        	<header>
+		        		<button string="Under Investigation" type="object" name="set_to_under_nvestigation" style="background-color: rgb(62, 92, 154);border: 1px solid rgb(62, 92, 154);" attrs="{'invisible': [('state','in',('closed','resolved','under_investigation'))]}"/>
+		        		<button string="Resolve" type="object" name="set_to_resolve" attrs="{'invisible': [('state','in',('closed','resolved'))]}"/>
+		        		<button string="Close" type="object" name="set_to_close" attrs="{'invisible': [('state','in',('closed','resolved'))]}"/>
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+						<group>
+	                        <button style="float:right" class="oe_inline oe_stat_button" type="action"
+	                            name="%(powerful_call_center.action_call_center_line_3_type)d"
+	                            icon="fa-phone" 
+		                        context="{'default_call_center_id': active_id}">
+	                            <field string="Calls" name="calls_count" widget="statinfo"/>
+	                        </button>											
+						</group>
+						<group>
+                        <separator string="Customer Information" colspan="4"/>
+			           		<group>
+		           				<field name="partner_id" domain="[('customer', '=', True)]" on_change="onchange_partner_id(partner_id)" required="1" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+								<field name="civil_number" />
+								<field name="file_number" />
+			           		</group>
+			           		<group>
+		           				<field name="mobile" />
+		           				<field name="phone" />
+		           				<field name="marketer_id" />
+		           			</group>
+						</group>
+						<group>
+                        <separator string="Services Information" colspan="4"/>
+			           		<group>
+		           				<field name="call_type_id" widget="selection" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+								<field name="call_category_id" widget="selection" on_change="onchange_call_category_id(call_category_id)" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+								<field name="due_date" />
+			           		</group>
+			           		<group>
+		           				<field name="contact_number" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+		           				<field name="participant_type_id" widget="selection" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+		           				<field name="assignto_id" widget="selection" on_change="onchange_assign_to_id(assignto_id)" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+		           				<field name="send_mail" invisible="1"/>
+		           			</group>
+			           		<group>
+		           			</group>
+			           		<group>
+				        		<button string="Send Email" name="action_service_sent"  type="object" attrs="{'invisible': [('send_mail','=',False)]}" style="background-color: rgb(62, 92, 154);border: 1px solid rgb(62, 92, 154);" />
+		           			</group>		           			
+						</group>
+		           		<group>
+			           		<group>
+		           				<field name="action" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+		           			</group>
+			           		<group>
+		           				<field name="support_action" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/>
+		           			</group>
+	           			</group>
+		                <notebook>
+		                    <page string="Description">
+        		                <separator string="Description" style="font-size: 14px;" colspan="4"/>
+	                           <field name="description" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/> 
+		                        <separator string="Comment" style="font-size: 14px;" colspan="4"/>
+	                           <field name="Comment" attrs="{'readonly': [('state','in',('closed','resolved'))]}"/> 
+		                    </page>
+		                    <page string="Info.">
+		                        <group>
+			                        <group>
+			                           <field name="created_date"/> 
+			                           <field name="created_by_id" widget="selection"/>
+			                        </group>
+			                        <group>
+			                           <field name="closed_date"/> 
+			                           <field name="closed_by_id" widget="selection"/>
+			                        </group>
+		                        </group>
+		                    </page>
+		                </notebook>
+					</sheet>
+		    	</form>
+			</field>
+	    </record>
+	    
+	    <record id="call_center_tree" model="ir.ui.view">
+	        <field name="name">Services tree</field>
+	        <field name="model">call.center</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+				<tree default_order="id desc" colors="blue:state == 'open';gray:state == 'closed';gray:state == 'resolved';red:state == 'pending';green:state == 'under_investigation'">
+					<field name="number"/>
+					<field name="partner_id"/>
+					<field name="created_date"/>
+					<field name="created_by_id"/>
+					<field name="closed_date"/>
+					<field name="closed_by_id"/>
+					<field name="state"/>
+                </tree>       
+	        </field>
+	    </record>
+
+        <record id="call_center_search" model="ir.ui.view">
+            <field name="name">Call Center- Search</field>
+            <field name="model">call.center</field>
+            <field name="arch" type="xml">
+                <search string="Call Center Search">
+                   <field name="number" />       	
+                   <field name="partner_id" />       	
+                   <field name="mobile" />       	
+                   <field name="contact_number" />       	
+					<filter help="My Services" name="my_services" icon="terp-personal+" domain="[('created_by_id','=',uid)]"/>
+					<separator/>
+					<filter help="Open" icon="terp-personal+" domain="[('state','=','open')]"/>
+					<filter help="Under Investigation" icon="terp-personal+" domain="[('state','=','under_investigation')]"/>
+					<filter help="Pending" icon="terp-personal+" domain="[('state','=','pending')]"/>
+					<filter help="Resolved" icon="terp-personal+" domain="[('state','=','resolved')]"/>
+					<filter help="Closed" icon="terp-personal+" domain="[('state','=','closed')]"/>
+					<separator/>
+					<group expand="0" string="Group By">
+						<filter string="Customer" icon="terp-personal" domain="[]" context="{'group_by' : 'partner_id'}" />
+						<filter string="Created By" icon="terp-personal" domain="[]" context="{'group_by' : 'created_by_id'}" />
+						<filter string="Closed By" icon="terp-personal" domain="[]" context="{'group_by' : 'closed_by_id'}" />
+					    <filter string="Status" context="{'group_by': 'state'}"/>
+					</group>
+                </search>
+            </field>
+        </record>
+
+
+		<record id="action_call_center" model="ir.actions.act_window">
+			<field name="name">Services</field>
+			<field name="res_model">call.center</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>     
+			<field name="view_id" ref="call_center_tree"/>
+			<field name="context">{'search_default_my_services': 1}</field>
+		</record>
+
+		<menuitem name="Services" id="menu_open_call_center_form" action="action_call_center" parent="menu_call_center_sub"/>
+		<!-- End Call Center View -->
+
+		<!-- Call Type View -->
+		<record id="call_type_form" model="ir.ui.view">
+			<field name="name">Call Type Form</field>
+		    <field name="model">call.type</field>
+		    <field name="arch" type="xml">
+		    	<form>
+					<sheet>
+		           		<group>
+	           				<field name="name" />
+		           		</group>
+					</sheet>
+		    	</form>
+			</field>
+	    </record>
+	    
+	    <record id="call_type_tree" model="ir.ui.view">
+	        <field name="name">Call Type tree</field>
+	        <field name="model">call.type</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+                </tree>       
+	        </field>
+	    </record>
+
+		<record id="action_call_type" model="ir.actions.act_window">
+			<field name="name">Call Type</field>
+			<field name="res_model">call.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>     
+			<field name="view_id" ref="call_type_tree"/>
+		</record>
+
+    	<menuitem name="Configuration" id="call_center_configuration_menu" parent ="main_call_center" groups="powerful_call_center.group_manager"/>
+		<menuitem name="Call Type" id="menu_open_call_type_form" action="action_call_type" parent="call_center_configuration_menu"/>
+		<!-- End Call Type View -->
+
+		<!-- Call Category View -->
+		<record id="call_category_form" model="ir.ui.view">
+			<field name="name">Call Category Form</field>
+		    <field name="model">call.category</field>
+		    <field name="arch" type="xml">
+		    	<form>
+					<sheet>
+		           		<group>
+		           			<group>
+	           					<field name="name" />
+	           				</group>
+	           				<group>
+	           					<field name="due_date_period" placeholder="Please Add Period By Hour"/>
+	           				</group>
+		           		</group>
+					</sheet>
+		    	</form>
+			</field>
+	    </record>
+	    
+	    <record id="call_category_tree" model="ir.ui.view">
+	        <field name="name">Call Category tree</field>
+	        <field name="model">call.category</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+   					<field name="due_date_period" />
+                </tree>       
+	        </field>
+	    </record>
+
+		<record id="action_call_category" model="ir.actions.act_window">
+			<field name="name">Call Category</field>
+			<field name="res_model">call.category</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>     
+			<field name="view_id" ref="call_category_tree"/>
+		</record>
+
+		<menuitem name="Call Category" id="menu_open_call_category_form" action="action_call_category" parent="call_center_configuration_menu"/>
+		<!-- End Call Category View -->
+
+		<!-- Participant Type View -->
+		<record id="participant_type_form" model="ir.ui.view">
+			<field name="name">Participant Type Form</field>
+		    <field name="model">participant.type</field>
+		    <field name="arch" type="xml">
+		    	<form>
+					<sheet>
+		           		<group>
+	           				<field name="name" />
+		           		</group>
+					</sheet>
+		    	</form>
+			</field>
+	    </record>
+	    
+	    <record id="participant_type_tree" model="ir.ui.view">
+	        <field name="name">Participant Type tree</field>
+	        <field name="model">participant.type</field>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+                </tree>       
+	        </field>
+	    </record>
+
+		<record id="action_participant_type" model="ir.actions.act_window">
+			<field name="name">Participant Type</field>
+			<field name="res_model">participant.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>     
+			<field name="view_id" ref="participant_type_tree"/>
+		</record>
+
+		<menuitem name="Participant Type" id="menu_open_participant_type_form" action="action_participant_type" parent="call_center_configuration_menu"/>
+		<!-- End Participant Type View -->
+
+		<!-- call center activity View -->
+		<record id="call_center_activity_tree" model="ir.ui.view">
+			<field name="name">Activity Tree</field>
+		    <field name="model">call.center.activity</field>
+		    <field name="arch" type="xml">
+		    	<tree editable="top">
+       				<field name="name"/>
+       				<field name="phone"/>
+       				<field name="description"/>
+       				<field name="created_by_id"/>
+       				<field name="created_date"/>
+		    	</tree>
+			</field>
+	    </record>
+	    
+        <record id="call_center_activity_search" model="ir.ui.view">
+            <field name="name">Calls- Search</field>
+            <field name="model">call.center.activity</field>
+            <field name="arch" type="xml">
+                <search string="Calls Activity Search">
+       				<field name="name"/>
+       				<field name="phone"/>
+					<filter help="My Activity" name="my_activity" icon="terp-personal+" domain="[('created_by_id','=',uid)]"/>
+					<separator/>
+					<group expand="0" string="Group By">
+						<filter string="Employee" icon="terp-personal" context="{'group_by' : 'created_by_id'}" />
+					    <filter string="Phone" context="{'group_by': 'phone'}"/>
+					</group>
+                </search>
+            </field>
+        </record>
+
+
+		<record id="action_activity_type" model="ir.actions.act_window">
+			<field name="name">Call Center Activity</field>
+			<field name="res_model">call.center.activity</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>     
+			<field name="view_id" ref="call_center_activity_tree"/>
+			<field name="context">{'search_default_my_activity': 1}</field>
+		</record>
+
+		<menuitem name="Call Center Activity" id="menu_open_call_center_activity_form" action="action_activity_type" parent="menu_call_center_sub"/>
+		<!-- End Call Center Activity View -->
+
+
+	</data>
+</openerp>		       

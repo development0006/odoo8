@@ -1,0 +1,18 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_module_user_call_center,call center user,model_call_center,group_user,1,1,1,0
+access_module_user_call_center_line,call center line user,model_call_center_line,group_user,1,1,1,0
+access_module_use_call_type,call type user,model_call_type,group_user,1,1,1,0
+access_module_user_call_category,call category user,model_call_category,group_user,1,1,1,0
+access_module_user_participant type,call participant type user,model_participant_type,group_user,1,1,1,0
+access_module_user_res_partner,call center user res partner,model_res_partner,group_user,1,0,0,0
+access_module_user_call_activity,call center user activity,model_call_center_activity,group_user,1,1,1,0
+,,,,,,,
+,,,,,,,
+,,,,,,,
+access_module_manager_call_type,call type manager,model_call_type,group_manager,1,1,1,1
+access_module_manager_call_category,call category manager,model_call_category,group_manager,1,1,1,1
+access_module_manager_participant type,call participant type manager,model_participant_type,group_manager,1,1,1,1
+access_module_manager_call_activity,call center activity manager,model_call_center_activity,group_manager,1,1,1,0
+access_module_manager_call_center,call center manager,model_call_center,group_manager,1,1,1,1
+access_module_manager_call_center_line,call center line manager,model_call_center_line,group_manager,1,1,1,1
+access_module_manager_call_activity,call center manager activity,model_call_center_activity,group_manager,1,1,1,1

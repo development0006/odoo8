@@ -1,0 +1,611 @@
+# Translation of KanzERP Server.
+# This file contains the translation of the following modules:
+#	* tmas_call_center
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: KanzERP Server 8.0-20151112\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-13 07:10+0000\n"
+"PO-Revision-Date: 2016-10-13 07:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tmas_call_center
+#: model:email.template,body_html:tmas_call_center.email_template_edi_service
+msgid "\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hello ${object.assignto_id.name},</p>\n"
+"    <p>A new Services Need To Your Follow UP: </p>\n"
+"    \n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCES</strong><br />\n"
+"       &nbsp;&nbsp;Services number: <strong>${object.number}</strong><br />\n"
+"	</p>\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>For Customer</strong><br />\n"
+"       &nbsp;&nbsp;Name : <strong>${object.partner_id.name}</strong><br />\n"
+"       &nbsp;&nbsp;Mobile : <strong>${object.partner_id.mobile}</strong><br />\n"
+"       &nbsp;&nbsp;Phone : <strong>${object.partner_id.phone}</strong><br />\n"
+"       &nbsp;&nbsp;File No : <strong>${object.partner_id.file_number}</strong><br />\n"
+"	</p>\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>Services Description</strong><br />\n"
+"       &nbsp;&nbsp;Services Description: <strong>${(object.description or 'He Need Your Help Please Contact Him as soon as possible ,,')}</strong><br />\n"
+"	</p>\n"
+"\n"
+"\n"
+"</div>\n"
+"            "
+msgstr "\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Hello ${object.assignto_id.name},</p>\n"
+"    <p>A new Services Need To Your Follow UP: </p>\n"
+"    \n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENCES</strong><br />\n"
+"       &nbsp;&nbsp;Services number: <strong>${object.number}</strong><br />\n"
+"	</p>\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>For Customer</strong><br />\n"
+"       &nbsp;&nbsp;Name : <strong>${object.partner_id.name}</strong><br />\n"
+"       &nbsp;&nbsp;Mobile : <strong>${object.partner_id.mobile}</strong><br />\n"
+"       &nbsp;&nbsp;Phone : <strong>${object.partner_id.phone}</strong><br />\n"
+"       &nbsp;&nbsp;File No : <strong>${object.partner_id.file_number}</strong><br />\n"
+"	</p>\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>Services Description</strong><br />\n"
+"       &nbsp;&nbsp;Services Description: <strong>${(object.description or 'He Need Your Help Please Contact Him as soon as possible ,,')}</strong><br />\n"
+"	</p>\n"
+"\n"
+"\n"
+"</div>\n"
+"            "
+
+#. module: tmas_call_center
+#: field:call.center,action:0
+msgid "Action"
+msgstr "إجراء الموظف"
+
+#. module: tmas_call_center
+#: view:res.partner:tmas_call_center.res_partner_call_inherit
+msgid "Address"
+msgstr "العنوان"
+
+#. module: tmas_call_center
+#: field:call.center,assignto_id:0
+msgid "Assigned to"
+msgstr "تعيين إلى"
+
+#. module: tmas_call_center
+#: field:call.center,call_category_id:0
+#: model:ir.actions.act_window,name:tmas_call_center.action_call_category
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_call_category_form
+msgid "Call Category"
+msgstr "تصنيف المكالمة"
+
+#. module: tmas_call_center
+#: field:call.center.line,call_center_id:0
+#: model:ir.module.category,name:tmas_call_center.module_category_call_center
+#: model:ir.ui.menu,name:tmas_call_center.main_call_center
+#: model:ir.ui.menu,name:tmas_call_center.menu_call_center_sub
+msgid "Call Center"
+msgstr "مركز اﻹتصال"
+
+#. module: tmas_call_center
+#: model:ir.actions.act_window,name:tmas_call_center.action_activity_type
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_call_center_activity_form
+msgid "Call Center Activity"
+msgstr "النشاطات"
+
+#. module: tmas_call_center
+#: model:ir.actions.act_window,name:tmas_call_center.action_call_center_partner
+msgid "Call Center Partner"
+msgstr "العملاء"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+msgid "Call Center Search"
+msgstr "بحث المكالمات"
+
+#. module: tmas_call_center
+#: field:call.center,call_type_id:0
+#: field:call.center.line,type:0
+#: model:ir.actions.act_window,name:tmas_call_center.action_call_type
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_call_type_form
+msgid "Call Type"
+msgstr "نوع المكالمة"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+#: field:call.center,call_center_line_ids:0
+#: model:ir.actions.act_window,name:tmas_call_center.action_call_center_line_3_type
+msgid "Calls"
+msgstr "المكالمات"
+
+#. module: tmas_call_center
+#: view:call.center.activity:tmas_call_center.call_center_activity_search
+msgid "Calls Activity Search"
+msgstr "البحث في النشاطات"
+
+#. module: tmas_call_center
+#: view:call.center.line:tmas_call_center.call_center_line_search
+msgid "Calls Search"
+msgstr "بحث المكالمات"
+
+#. module: tmas_call_center
+#: field:call.center,civil_number:0
+#: field:res.partner,civil_number:0
+msgid "Civil NO."
+msgstr "الرقم المدني"
+
+#. module: tmas_call_center
+#: field:res.partner,display_name:0
+msgid "Name"
+msgstr "اسم العميل"
+
+#. module: tmas_call_center
+#: field:res.partner,arabic_name_partner:0
+msgid "Arabic Name"
+msgstr "اللقب"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: selection:call.center,state:0
+msgid "Closed"
+msgstr "مغلقة"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: field:call.center,closed_by_id:0
+msgid "Closed By"
+msgstr "إغلاق من"
+
+#. module: tmas_call_center
+#: field:call.center,closed_date:0
+msgid "Closed Date"
+msgstr "تاريخ اﻹغلاق"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+#: field:call.center,Comment:0
+msgid "Comment"
+msgstr "تعليقات"
+
+#. module: tmas_call_center
+#: model:ir.ui.menu,name:tmas_call_center.call_center_configuration_menu
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: tmas_call_center
+#: field:call.center,contact_number:0
+msgid "Contact No."
+msgstr "رقم اﻹتصال"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: field:call.center,created_by_id:0
+#: field:call.center.activity,created_by_id:0
+#: field:call.center.line,created_by_id:0
+msgid "Created By"
+msgstr "إنشاء من"
+
+#. module: tmas_call_center
+#: field:call.center,created_date:0
+#: field:call.center.activity,created_date:0
+#: field:call.center.line,created_date:0
+msgid "Created Date"
+msgstr "تاريخ اﻹنشاء"
+
+#. module: tmas_call_center
+#: field:call.category,create_uid:0
+#: field:call.center,create_uid:0
+#: field:call.center.activity,create_uid:0
+#: field:call.center.line,create_uid:0
+#: field:call.type,create_uid:0
+#: field:participant.type,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: tmas_call_center
+#: field:call.category,create_date:0
+#: field:call.center,create_date:0
+#: field:call.center.activity,create_date:0
+#: field:call.center.line,create_date:0
+#: field:call.type,create_date:0
+#: field:participant.type,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: field:call.center,partner_id:0
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_call_center_partner_form
+msgid "Customer"
+msgstr "العميل"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+msgid "Customer Information"
+msgstr "معلومات المتصل"
+
+#. module: tmas_call_center
+#: model:ir.actions.act_window,name:tmas_call_center.act_res_partner_2_call_center
+msgid "Customer Services"
+msgstr "خدمات العميل"
+
+#. module: tmas_call_center
+#: help:call.center,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Date of the last message posted on the record."
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+#: field:call.center,description:0
+#: field:call.center.activity,description:0
+#: field:call.center.line,description:0
+msgid "Description"
+msgstr "الوصف"
+
+#. module: tmas_call_center
+#: field:call.category,due_date_period:0
+msgid "Due Date Period"
+msgstr "مدة تاريخ اﻹستحقاق"
+
+#. module: tmas_call_center
+#: field:call.center,due_date:0
+msgid "Due date"
+msgstr "تاريخ اﻹستحقاق"
+
+#. module: tmas_call_center
+#: model:ir.actions.act_window,name:tmas_call_center.action_email_templates
+msgid "Email Templates"
+msgstr "قوالب البريد الإلكتروني"
+
+#. module: tmas_call_center
+#: model:ir.model,name:tmas_call_center.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "معالج تكوين رسالة بريد الالكتروني"
+
+#. module: tmas_call_center
+#: view:call.center.activity:tmas_call_center.call_center_activity_search
+#: view:call.center.line:tmas_call_center.call_center_line_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: tmas_call_center
+#: field:call.center,file_number:0
+#: field:res.partner,file_number:0
+msgid "File No."
+msgstr "رقم الملف"
+
+#. module: tmas_call_center
+#: field:call.center,message_follower_ids:0
+msgid "Followers"
+msgstr "المتابعين"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: view:call.center.activity:tmas_call_center.call_center_activity_search
+#: view:call.center.line:tmas_call_center.call_center_line_search
+msgid "Group By"
+msgstr "حسب"
+
+#. module: tmas_call_center
+#: help:call.center,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+
+#. module: tmas_call_center
+#: field:call.category,id:0
+#: field:call.center,id:0
+#: field:call.center.activity,id:0
+#: field:call.center.line,id:0
+#: field:call.type,id:0
+#: field:participant.type,id:0
+msgid "ID"
+msgstr "الرقم"
+
+#. module: tmas_call_center
+#: help:call.center,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "If checked new messages require your attention."
+
+#. module: tmas_call_center
+#: selection:call.center.line,type:0
+msgid "In"
+msgstr "داخل"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+msgid "Info."
+msgstr "المعلومات"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center_partner.py:32
+#: code:addons/tmas_call_center/call_center_partner.py:41
+#, python-format
+msgid "Invalid Action"
+msgstr "إجراء غير مسموح"
+
+#. module: tmas_call_center
+#: field:res.partner,is_call_center_partner:0
+msgid "Is Call Center Partner"
+msgstr "Is Call Center Partner"
+
+#. module: tmas_call_center
+#: field:call.center,message_is_follower:0
+msgid "Is a Follower"
+msgstr "متابع"
+
+#. module: tmas_call_center
+#: field:call.center,message_last_post:0
+msgid "Last Message Date"
+msgstr "Last Message Date"
+
+#. module: tmas_call_center
+#: field:call.category,write_uid:0
+#: field:call.center,write_uid:0
+#: field:call.center.activity,write_uid:0
+#: field:call.center.line,write_uid:0
+#: field:call.type,write_uid:0
+#: field:participant.type,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: tmas_call_center
+#: field:call.category,write_date:0
+#: field:call.center,write_date:0
+#: field:call.center.activity,write_date:0
+#: field:call.center.line,write_date:0
+#: field:call.type,write_date:0
+#: field:participant.type,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: tmas_call_center
+#: model:res.groups,name:tmas_call_center.group_call_center_manager
+#: model:res.groups,name:tmas_call_center.group_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: tmas_call_center
+#: field:call.center,marketer_id:0
+#: field:res.partner,marketer_id:0
+msgid "Marketer"
+msgstr "المسوق"
+
+#. module: tmas_call_center
+#: field:call.center,message_ids:0
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: tmas_call_center
+#: help:call.center,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messages and communication history"
+
+#. module: tmas_call_center
+#: field:call.center,mobile:0
+msgid "Mobile"
+msgstr "الموبايل"
+
+#. module: tmas_call_center
+#: view:call.center.activity:tmas_call_center.call_center_activity_search
+msgid "My Activity"
+msgstr "نشاطاتي"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+msgid "My Services"
+msgstr "مكالماتي"
+
+#. module: tmas_call_center
+#: field:call.category,name:0
+#: field:call.center.activity,name:0
+#: field:call.type,name:0
+#: field:participant.type,name:0
+#: view:res.partner:tmas_call_center.res_partner_call_inherit4
+msgid "Name"
+msgstr "اﻷسم"
+
+#. module: tmas_call_center
+#: model:ir.model,name:tmas_call_center.model_mail_notification
+msgid "Notifications"
+msgstr "التنبيهات"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: selection:call.center,state:0
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: tmas_call_center
+#: view:call.center.line:tmas_call_center.call_center_line_search
+#: selection:call.center.line,type:0
+msgid "Out"
+msgstr "خارج"
+
+#. module: tmas_call_center
+#: model:ir.model,name:tmas_call_center.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "رسائل البريد الصادر"
+
+#. module: tmas_call_center
+#: field:call.center,participant_type_id:0
+#: model:ir.actions.act_window,name:tmas_call_center.action_participant_type
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_participant_type_form
+msgid "Participant Type"
+msgstr "نوع المشاركة"
+
+#. module: tmas_call_center
+#: model:ir.model,name:tmas_call_center.model_res_partner
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: selection:call.center,state:0
+msgid "Pending"
+msgstr "في اﻹنتظار"
+
+#. module: tmas_call_center
+#: field:call.center,phone:0
+#: view:call.center.activity:tmas_call_center.call_center_activity_search
+#: field:call.center.activity,phone:0
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: tmas_call_center
+#: view:call.category:tmas_call_center.call_category_form
+msgid "Please Add Period By Hour"
+msgstr "الرجاء إصافة الفترة بالساعات"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+msgid "Resolve"
+msgstr "معالجة"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: selection:call.center,state:0
+msgid "Resolved"
+msgstr "تمت المعالجة"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center.py:72
+#: view:call.center:tmas_call_center.call_center_form
+#, python-format
+msgid "Send Email"
+msgstr "إرسال بريد"
+
+#. module: tmas_call_center
+#: field:call.center,send_mail:0
+msgid "Send Mail"
+msgstr "إرسال بريد"
+
+#. module: tmas_call_center
+#: model:email.template,subject:tmas_call_center.email_template_edi_service
+msgid "Service (Ref ${object.number or 'n/a'})"
+msgstr "Service (Ref ${object.number or 'n/a'})"
+
+#. module: tmas_call_center
+#: model:ir.actions.act_window,name:tmas_call_center.action_call_center
+#: model:ir.ui.menu,name:tmas_call_center.menu_open_call_center_form
+#: view:res.partner:tmas_call_center.res_partner_call_inherit
+#: field:res.partner,services_ids:0
+msgid "Services"
+msgstr "المكالمات"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+msgid "Services Information"
+msgstr "تفاصيل المكالمات"
+
+#. module: tmas_call_center
+#: field:call.center,number:0
+msgid "Services Number"
+msgstr "رقم المكالمه"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_search
+#: field:call.center,state:0
+msgid "Status"
+msgstr "الحالة"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center.py:164
+#, python-format
+msgid "Successfully sent email"
+msgstr "تم إرسال البريد اﻹلكتروني"
+
+#. module: tmas_call_center
+#: field:call.center,message_summary:0
+msgid "Summary"
+msgstr "Summary"
+
+#. module: tmas_call_center
+#: field:call.center,support_action:0
+msgid "Support Action"
+msgstr "إجراء اﻹدارة"
+
+#. module: tmas_call_center
+#: view:res.partner:tmas_call_center.res_partner_call_inherit4
+msgid "Title"
+msgstr "اللقب"
+
+#. module: tmas_call_center
+#: view:call.center.line:tmas_call_center.call_center_line_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: tmas_call_center
+#: view:call.center:tmas_call_center.call_center_form
+#: view:call.center:tmas_call_center.call_center_search
+#: selection:call.center,state:0
+msgid "Under Investigation"
+msgstr "قيد العمل"
+
+#. module: tmas_call_center
+#: field:call.center,message_unread:0
+msgid "Unread Messages"
+msgstr "Unread Messages"
+
+#. module: tmas_call_center
+#: model:res.groups,name:tmas_call_center.group_call_center_employee
+#: model:res.groups,name:tmas_call_center.group_user
+msgid "User"
+msgstr "المستخدم"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center.py:141
+#, python-format
+msgid "Warning!"
+msgstr "تحذير!"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center_partner.py:32
+#, python-format
+msgid "You Don`t Have Permission To Delete Existing Customer"
+msgstr "لا تملك صلاحية حذف عميل موجود على النظام"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center_partner.py:41
+#, python-format
+msgid "You Don`t Have Permission To Update Customer Information"
+msgstr "لا تملك صلاحية تعديل معلومات العميل"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center.py:141
+#, python-format
+msgid "You Have To Fill Support Action Field"
+msgstr "يجب ملئ خانة إجراء اﻹدارة"
+
+#. module: tmas_call_center
+#: code:addons/tmas_call_center/call_center.py:164
+#, python-format
+msgid "alert!"
+msgstr "تنبيه!"
+
+#. module: tmas_call_center
+#: view:res.partner:tmas_call_center.view_call_center_partner_tree
+msgid "false"
+msgstr "false"
+
+#. module: tmas_call_center
+#: field:call.center,calls_count:0
+#: field:res.partner,services_count:0
+msgid "unknown"
+msgstr "unknown"
+

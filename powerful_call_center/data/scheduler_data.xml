@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="ir_cron_call_center_action" model="ir.cron">
+            <field name="name">Services States</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="'call.center'" name="model"/>
+            <field eval="'service_check_state'" name="function"/>
+        </record>
+   </data>
+</openerp>
