@@ -8,7 +8,7 @@
 Give Odoo 8.0 amazing Style.
     """,
     'depends' : ['base'],
-	'price' : 100,
+	'price' : 50,
 	'currency' : 'EUR',
     'data':[
         'views.xml',
