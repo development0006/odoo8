@@ -16,7 +16,7 @@
              'call_center_module_sequence.xml',
              'call_center_partner_view.xml',
              'call_center_view.xml'],
-    'price' : '150',
+    'price' : '50',
     'currency' : 'EUR',
     'images' : ['images/main_screenshot.png'],
     'icon' : 'static/description/icon.png',
